@@ -1,3 +1,11 @@
+# TODO
+# Add a header and footer to the wesbite
+# try different color schemes
+# Make the python calculator a subpage of the website
+# Create a portfolio landing page
+#   - It should have an about section
+#   - My projects and proficiencies
+#   - Emulate a website that I enjoy, like Udemy, youtube, or twitch.
 from flask import Flask, render_template, request
 import calculator
 
