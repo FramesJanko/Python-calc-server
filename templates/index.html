@@ -2,13 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>FlaskBlog</title>
+    <title>Robby Heckman's Portfolio</title>
     <script src="https://unpkg.com/htmx.org@2.0.0" integrity="sha384-wS5l5IKJBvK6sPTKa2WZ1js3d947pvWXbPJ1OmWfEuxLgeHcEbjUUA5i9V5ZkpCw" crossorigin="anonymous"></script>
 </head>
 <body>
     <h1>Welcome to my website!</h1>
-    <div class="contact" hx-get="/ContactMe" hx-swap="outerHTML" hx-target="#contact-button">Want to contact me?
-        <button id="contact-button">Contact me</button>
-    </div>
+    <p>Enter a calculation!</p>
+    <ul>
+    <li>
+        The accepted operators are '+', '-', 'x', '/', 'xx', 
+    </li>
+    <li>
+        Enter it all as one string (Example: '2+3x5xx3' translates to 2 + 3 x 5^3).
+    </li>
+    </ul>
+    <form action="submit" hx-post="/submit" hx-target=".answer" hx-swap="outerHTML" method="POST">
+        <label name="calculation">Calculation</label>
+        <input name="calculation" type="text"/>
+        <button type="submit" id="contact-button">Contact me</button>
+        <div class="answer"></div>
+    </form>
 </body>
 </html>
