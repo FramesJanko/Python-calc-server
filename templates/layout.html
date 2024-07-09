@@ -1,4 +1,15 @@
-{% include "header.html" %}
-{% block content %}
-{% endblock %}
-{% include "footer.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Robby Heckman's Portfolio</title>
+    <script src="https://unpkg.com/htmx.org@2.0.0" integrity="sha384-wS5l5IKJBvK6sPTKa2WZ1js3d947pvWXbPJ1OmWfEuxLgeHcEbjUUA5i9V5ZkpCw" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    {% include "header.html" %}
+    {% block content %}
+    {% endblock %}
+    {% include "footer.html" %}
+</body>
+</html>
