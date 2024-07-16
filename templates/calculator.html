@@ -1,0 +1,19 @@
+    {% extends "layout.html" %}
+    {% block content %}
+
+    <p>Enter a calculation!</p>
+    <ul>
+    <li>
+        The accepted operators are '+', '-', 'x', '/', 'xx', 
+    </li>
+    <li>
+        Enter it all as one string (Example: '2+3x5xx3' translates to 2 + 3 x 5^3).
+    </li>
+    </ul>
+    <form action="submit" hx-post="/submit" hx-target=".response" hx-swap="outerHTML" method="POST">
+        <label name="calculation">Calculation</label>
+        <input name="calculation" type="text"/>
+        <button type="submit" id="contact-button">Contact me</button>
+        <div class="response"></div>
+    </form>
+    {% endblock %}
