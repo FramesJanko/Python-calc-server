@@ -1,5 +1,6 @@
 html {
     font-size: 16px;
+    font-family: sans-serif;
 }
 
 .answer {
@@ -15,12 +16,15 @@ body {
 }
 
 .header {
+    text-transform: uppercase;
     background-color: #ACD8AA;
     border-bottom: 2px solid #F48498;
     height: 5rem;
     display: flex;
     /* justify-content: flex-end; */
     align-items: center;
+    font-weight: 700;
+    font-size: 1.5rem;
 }
 
 .history {
@@ -53,18 +57,33 @@ body {
     align-items: center;
 }
 
-.nav-bar li {
+.nav {
     /* padding: 1.3rem .5rem; */
     /* border-radius: .6rem; */
     background-color: #ACD8AA;
     height: 100%;
     min-width: 10rem;
     list-style-type: none;
-    margin: 0 .5rem;
+    padding: 0 .5rem;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.nav li {
+    list-style-type: none;
+    margin: 0 .5rem;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.nav::before {
+    content: "";
+    width: 100%;
+    position: absolute;
+    height: .75rem;
+    bottom: -.75rem;
 }
 
 .nav-bar li li {
@@ -73,16 +92,34 @@ body {
 
 .dropdown {
     border-radius: 1rem;
-    display: none;
+    opacity: 0; /* Added for transition */
+    visibility: hidden; /* Added for transition */
     position: absolute;
     top: 110%;
     width: 150%;
     left: 0;
     transform: translateX(-16.66666%);
+    transition: opacity .1s ease-in-out, visibility .1s ease-in-out; /* Added for transition */
     z-index: 1;
+    display: flex; /* Added for vertical stacking */
+    flex-direction: column; /* Added for vertical stacking */
+    justify-content: center; /* Added for vertical stacking */
+    align-items: center; /* Added for vertical stacking */
+    background-color: #F48498; /* Moved here to ensure background color is always set */
 }
 
-.nav-bar li:hover {
+.dropdown ul {
+    list-style-type: none; /* Removes bullet points */
+}
+
+.dropdown li {
+    opacity: 0; /* Added for transition */
+    visibility: hidden; /* Added for transition */
+    transition: opacity .1s ease-in-out, visibility .1s ease-in-out; /* Added for transition */
+    text-align: center; /* Centers text within li */
+}
+
+.nav:hover {
     filter: brightness(1.1);
     border: 1px solid #F48498;
 }
@@ -91,9 +128,18 @@ body {
     filter: brightness(1.1);
 }
 
-.nav-bar li:hover div {
-    display: inline-block;
+.nav:hover div {
+    justify-content: center;
+    align-items: center;
     background-color: #F48498;
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav:hover .dropdown li {
+    display: block;
+    opacity: 1;
+    visibility: visible;
 }
 
 ul {
