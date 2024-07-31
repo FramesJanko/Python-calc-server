@@ -10,7 +10,7 @@
         Enter it all as one string (Example: '2+3x5xx3' translates to 2 + 3 x 5^3).
     </li>
     </ul>
-    <form action="submit" hx-post="/submit" hx-target=".response" hx-swap="outerHTML" method="POST">
+    <form action="submit" hx-post="/calculator/submit" hx-target=".response" hx-swap="outerHTML" method="POST">
         <label name="calculation">Calculation</label>
         <input name="calculation" type="text"/>
         <button type="submit" id="contact-button">Contact me</button>
