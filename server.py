@@ -23,8 +23,26 @@ def index():
 def calculator_route():
     return render_template('calculator.html')
 
+@app.route('/flights')
+def flights_route():
+    return render_template('flights.html')
+
+# <div class="response"></div>
+@app.route('/flights/submit', methods=['POST'])
+def flights_submit():
+    if request.method == 'POST':
+        phone_number = request.form["phone-number"]
+        print(phone_number)
+        html_response = """
+        <div class ="response">
+        </div>
+        """
+        return render_template_string(html_response)
+    else:
+        return render_template('flights.html')
+
 @app.route('/calculator/submit', methods = ['POST'] )
-def submit():
+def calculator_submit():
     if request.method == 'POST':
         calculation = calculator.calculate(request.form["calculation"])
         calc_history.append(calculation)
@@ -42,7 +60,7 @@ def submit():
         """
         return render_template_string(html_response, calculation=calculation, calc_history=calc_history)
     else:
-        return render_template('index.html')
+        return render_template('calculator.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
