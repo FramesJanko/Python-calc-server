@@ -34,8 +34,7 @@ def flights_submit():
         phone_number = request.form["phone-number"]
         print(phone_number)
         html_response = """
-        <div class ="response">
-        </div>
+        <input class="phone" name="phone-number" type="text"/>
         """
         return render_template_string(html_response)
     else:

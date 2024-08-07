@@ -3,9 +3,9 @@
 
 <p>Enter your phone number to receive flight prices for MCO -> MSP</p>
 </ul>
-<form action="submit" hx-post="/flights/submit" hx-target=".response" hx-swap="outerHTML" method="POST">
+<form action="submit" hx-post="/flights/submit" hx-target=".phone" hx-swap="outerHTML" method="POST">
     <label name="phone-number">Phone Number:</label>
-    <input name="phone-number" type="text"/>
+    <input class="phone" name="phone-number" type="text"/>
     <button type="submit" id="enter-phone">Submit</button>
     <div class="response"></div>
 </form>
