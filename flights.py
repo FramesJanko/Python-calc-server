@@ -130,7 +130,7 @@ def format_prices(dataframe):
 def get_flight_prices():
 
 # Setup the webdriver
-    service = Service('./chromedriver')
+    service = Service('chromedriver')
     options = Options()
     options.add_argument("--disable-blink-features=AutomationControlled")
 

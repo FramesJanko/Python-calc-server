@@ -6,8 +6,10 @@
 #   - It should have an about section
 #   - My projects and proficiencies
 #   - Emulate a website that I enjoy, like Udemy, youtube, or twitch.
+import os
 from flask import Flask, render_template, render_template_string, request
 import calculator
+import flight_messenger
 
 app = Flask(__name__)
 
@@ -61,5 +63,8 @@ def calculator_submit():
     else:
         return render_template('calculator.html')
 
+flight_messenger.start_scheduler()
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)  # Disable debug mode
